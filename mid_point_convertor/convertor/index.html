@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Power Electronics Lab</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <link href="css/new-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script></head>
+  <body style="    max-width: 2014.76px;
+  min-width: 1615.66px;">
+    <div class="head"></div>
+    <div
+      id="main"
+      style="
+        padding-bottom: 23px;
+        max-height: 900px;
+        min-height: 900px;
+        padding-right: unset;max-width: 2000px;width: unset;
+      "
+    >
+      <div id="workspace">
+        <div id="left" style="margin-left: 3px">
+          <div
+            id="symbolpalette"
+            style="border: 2px solid black; background-color: white"
+          >
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: 7px;
+              "
+            >
+            
+              <div
+                class="dropbtn"
+                id="component_head"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                &nbsp;COMPONENTS
+              </div>
+            </div>
+            
+
+            <div class="components" id="components">
+              <div class="comp-row">
+                <div class="comp-ele">
+                  <div
+                    class="ele-img resistor-sym"
+                    style="height: 40px; width: 100px; padding-top: 10px"
+                  >
+                    <img
+                      src="new-img/resistor.png"
+                      alt=""
+                      height="100%"
+                      width="90%"
+                    />
+                  </div>
+                  <div class="ele-name" style="padding-top: 5px">Resistor</div>
+                </div>
+                <div class="comp-ele">
+                  <div
+                    class="ele-img gnd-sym"
+                    style="height: 55px; width: 100px; padding-right: 10px"
+                  >
+                    <img
+                      src="new-img/ground.png"
+                      alt=""
+                      height="100%"
+                      width="60%"
+                    />
+                  </div>
+                  <div class="ele-name">Ground</div>
+                </div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-ele">
+                  <div
+                    class="ele-img gate-sym"
+                    style="height: 55px; width: 100px"
+                  >
+                    <img
+                      src="new-img/gatepulse.png"
+                      alt=""
+                      height="90%"
+                      width="90%"
+                    />
+                  </div>
+                  <div class="ele-name">Gatepulse</div>
+                </div>
+                <div class="comp-ele">
+                  <div
+                    class="ele-img thy-sym"
+                    style="height: 55px; width: 100px"
+                  >
+                    <img
+                      src="new-img/thyristor.png"
+                      alt=""
+                      height="100%"
+                      width="100%"
+                    />
+                  </div>
+                  <div class="ele-name">Thyristor</div>
+                </div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-ele">
+                  <div
+                    class="ele-img ac-sym"
+                    style="height: 55px; width: 100px"
+                  >
+                    <img
+                      src="new-img/acsourceuse.png"
+                      alt=""
+                      height="100%"
+                      width="100%"
+                    />
+                  </div>
+                  <div class="ele-name">AC Source</div>
+                </div>
+                <div class="comp-ele">
+                  <div
+                    class="ele-img volt-sym"
+                    style="height: 55px; width: 100px"
+                  >
+                    <img
+                      src="new-img/vmeter.png"
+                      alt=""
+                      height="100%"
+                      width="60%"
+                    />
+                  </div>
+                  <div class="ele-name">Voltmeter</div>
+                </div>
+              </div>
+
+              <div class="comp-row">
+                <div class="comp-ele">
+                  <div
+                    class="ele-img am-sym"
+                    style="height: 42px; width: 140px; padding-right: 10px"
+                  >
+                    <img
+                      src="new-img/ammeter.png"
+                      alt=""
+                      height="110%"
+                      width="50%"
+                      style="position: relative; left: -19px; top: 4px;"
+                    />
+                  </div>
+                  <div class="ele-name" style="position: relative; top: 18px;">Ammeter</div>
+                </div>
+                <div class="comp-ele">
+                  <div
+                    class="ele-img transformer-sym"
+                    style="height: 55px; width: 100px; padding-right: 10px"
+                  >
+                    <img
+                      src="new-img/transformer.png"
+                      alt=""
+                      height="110%"
+                      width="65%"
+                    />
+                  </div>
+                  <div class="ele-name" style="position: relative; top: 6px;">3-W</div>
+                  <div class="ele-name">Transformer</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br /><br />
+
+          <div
+            class="reading"
+            id="Taken_reading"
+            style="width: 100%; padding: unset; padding-top: 10px"
+          >
+            <div class="sub-reading">
+              <div
+                style="
+                  margin-top: -30px;
+                  height: 30px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  background-image: linear-gradient(
+                    45deg,
+                    #ff512f 0%,
+                    #f09819 51%,
+                    #ff512f 100%
+                  );
+                "
+              >
+                <h4>OBSERVATION TABLE</h4>
+              </div>
+              <div>
+                <table border="2px solid black" id="tab">
+                  <tr>
+                    <th>S.No.</th>
+                    <th>VL<sub>rms</sub> (V)</th>
+                    <th>VL<sub>avg</sub> (V)</th>
+                    <th>IL<sub>avg</sub> (A)</th>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="mid">
+          <div id="diagram" style="background: url(new-img/grid2.png)">
+            <div class="dia-row">
+              <div class="blank"></div>
+
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="VM1-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeter.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                  "
+                  id="VM1"
+                >
+                  <div id="VM1L" class="left-end">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div id="VM1R" class="right-end dbl">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="left-serial-no-vm1" id="VM1LS" style="left: -19px;">10</div>
+                  <div class="right-serial-no-vm1" id="VM1RS" style="left: 62px;">11</div>
+                  <div class="bottom-name-v1" id="VM1-name" style="left: 14px;">VT1</div>
+                  <!-- <div class="name" id="V1-value"></div> -->
+                </div>
+              </div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="THY1-back">
+                <div
+                  class="use other"
+                  id="THY1"
+                  style="
+                    background: url(new-img/thyristor.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                  "
+                  id="THY1"
+                >
+                  <div class="right-end" id="THY1R">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="left-end" style="top: 5px" id="THY1L">
+                    <span class="red-circle"></span>
+                  </div>
+
+                  <div
+                    class="rightbottom-end"
+                    style="top: 28px; left: 44px"
+                    id="THY1RB"
+                  >
+                    <span class="red-circle"></span>
+                  </div>
+                  <div
+                    class="top-serial-no top-serial-no-thy"
+                    style="top: -33px"
+                    id="THY1TS"
+                  >
+                    <!-- Original id = "VM1TS" -->
+                    12
+                  </div>
+                  <div
+                    class="bottom-serial-no bottom-serial-no-thy"
+                    style="top: -50px"
+                    id="THY1BS"
+                  >
+                    <!-- Original id = "VM1BS" -->
+                    13
+                  </div>
+                  <div
+                    class="bottom-serial-no last-serial-no-thy"
+                    style="top: -22px; left: 59px"
+                    id="THY1RBS"
+                  >
+                    <!-- Original id = "VM1BS" -->
+                    14
+                  </div>
+                  <div
+                    class="bottom-name-thy"
+                    style="top: -40px; left: 8px"
+                    id="THY1-name"
+                  >
+                    T1
+                  </div>
+                </div>
+              </div>
+
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <dib class="blank"></dib>
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="GTP2-back">
+                <div
+                  class="use gatepulse"
+                  id="GTP2"
+                  style="
+                    background: url(new-img/gatepulsenew.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    left: -6px;
+                    top: -1px;
+                  "
+                >
+                  <div
+                    id="GTP2S"
+                    style="
+                      width: 17px;
+                      height: 18px;
+                      position: relative;
+                      top: 39px;
+                      left: 55px;
+                    "
+                  >
+                    15
+                  </div>
+                  <div
+                    class="right-end-gate"
+                    style="top: 7px; z-index: 9"
+                    id="GTP2R"
+                  >
+                    <span class="red-circle" style=" z-index: 9;position: relative;"></span>
+                  </div>
+                  <div
+                    class="GTP2-name"
+                    id="GTP2-name"
+                    style="position: relative; top: 24px; left: 12px"
+                  >
+                    GP1
+                  </div>
+                  <div
+                    style="
+                      position: relative;
+                      top: 26px;
+                      display: flex;
+                      align-items: flex-end;
+                      justify-content: space-between;
+                      left: -6px;
+                    "
+                  >
+                    <div class="GTP2-value" id="GTP2-freq"></div>
+                    <div class="GTP2-value" id="GTP2-fire"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="hell" id="VM2-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeter.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    top: -1px;
+                  "
+                  id="VM2"
+                >
+                  <div class="upper-end" id="VM2T" style="top: 25px; left: 0px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="right-name-v3" id="VM2-name" style="top: 50px; left: 12px;">VGP1</div>
+                  <div class="lower-end" id="VM2B" style="top: -3px;left: 52px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="top-serial-no top-serial-no-volt" id="VM2TS" style="top: -1px; left: -20px;">
+                    16
+                  </div>
+                  <div
+                    class="bottom-serial-no bottom-serial-no-volt"
+                    id="VM2BS"
+                    style="top: -19px; left: 65px;"
+                  >
+                    17
+                  </div>
+                </div>
+              </div>
+              <div class="hell" id="GND2-back">
+                <div
+                  class="use other"
+                  id="GND2"
+                  style="
+                    background: url(new-img/ground.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    left: 25px;
+                    top: 19px;
+                  "
+                >
+                  <div class="upper-end" id="gnd2">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div
+                    id="GND2S"
+                    style="
+                      width: 17px;
+                      height: 18px;
+                      position: relative;
+                      top: -13px;
+                      left: 6px;
+                    "
+                  >
+                    18
+                  </div>
+                  <div class="ground-name" id="GND2-name">GND</div>
+                </div>
+              </div>
+              
+              <dib class="blank"></dib>
+            </div>
+            <div class="dia-row">
+              <div class="hell" id="VM3-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeteruse.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    top: 2px;
+                  "
+                  id="VM3"
+                >
+                  <div class="upper-end" id="VM3T" style="top: -2px; left: 25px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="right-name-v3" id="VM3-name" style="top: 5px;">VINP</div>
+                  <div class="lower-end" id="VM3B" style="top: 23px; left: 25px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="top-serial-no top-serial-no-volt" id="VM3TS" style="top: -55px;left: 17px;">
+                    1
+                  </div>
+                  <div
+                    class="bottom-serial-no bottom-serial-no-volt"
+                    id="VM3BS"
+                    style="top: 2px; left: 17px;"
+                  >
+                    2
+                  </div>
+                </div>
+              </div>
+              <div class="hell" id="AC1-back">
+                <div
+                  class="use acsource"
+                  style="
+                    background: url(new-img/acnew.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    top: 1px;
+                  "
+                  id="AC1"
+                >
+                  <div class="upper-end" id="AC1T">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="lower-end dbl2a" id="AC1B" style="top: 43px;">
+                    <span class="red-circle"></span>
+                  </div>
+
+                  <div class="top-serial-no-ac" id="AC1LS">3</div>
+                  <div class="bottom-serial-no-ac" id="AC1RS">4</div>
+                  <div class="right-name-ac" id="AC1-name">AC</div>
+                  <div class="ac-value" id="AC1-volt"></div>
+                  <div class="ac-value" id="AC1-freq"></div>
+                </div>
+              </div>
+              <div class="hell" id="transformer-back">
+                <div class="trans-use other" id="TF"
+                    style="background: url(new-img/transformer.png); background-size: contain; background-repeat: no-repeat; position: relative; left: 0px;top: 60px;">
+                    <div id="TF1U" class="leftUpper-end"
+                        style="top: 3px;width:10px;height:10px;position:relative;left:0px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="TF2L" class="leftlower-end"
+                        style="top: 39px;width:10px;height:10px;position:relative;left:2px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="TF3RU" class="rightupper-end"
+                        style="top: -19px;width:10px;height:10px;position:relative;left:51px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="TC4RM" class="rightmiddle-end"
+                        style="top: -8px;width:10px;height:10px;position:relative;left:50px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="TC5RL" class="rightlower-end"
+                        style="top: 11px;width:10px;height:10px;position:relative;left:50px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="TFUL" style="height: 18px;position: relative;top: -53px;left: -10px;">5</div>
+                    <div id="TFLL" style="height: 18px;position: relative;top: -22px;left: -9px;">6</div>
+                    <div id="TFUR" style="height: 18px; position: relative; top: -89px; left: 66px;">7</div>
+                    <div id="TFMR" style="height: 18px; position: relative; top: -76px; left: 66px;">8</div>
+                    <div id="TFLL" style="height: 18px; position: relative; top: -70px; left: 65px;">9</div>
+                    <div class="name" id="TF-name" style="left: -8px;top: -216px;width: 60px;position:relative;">
+                        3-W <p style="position: relative; left:-20px;">Transformer</p></div>
+                    <div class="name" style="width: 38px" id="TF-value"></div>
+
+                </div>
+
+              </div>
+              <div class="blank"></div>
+              <div class="hell" id="R2-back">
+                <div
+                  class="use resistor"
+                  style="
+                    background: url(new-img/resistor.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    left: 2px;
+                    top: 23px;
+                  "
+                  id="R2"
+                >
+                  <div class="upper-end" id="R2T" style="top: 1px; left: 0px;">
+                    <span class="red-circle"></span>
+                  </div>
+
+                  <div class="lower-end" style="top: -9px;left: 55px;" id="R2B">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="top-serial-no" style="top: -8px ; left: -19px;" id="R2TS">
+                    19
+                  </div>
+                  <div class="bottom-serial-no" style="top: -26px; left: 69px;" id="R2BS">
+                    20
+                  </div>
+                  <div class="name" id="R2-name" style="top: -41px; left: 29px">
+                    R
+                  </div>
+                  <div
+                    class="R2-value"
+                    id="R2-value"
+                    style="top: -40px; left: 45px; position: relative"
+                  ></div>
+                  <!--class="name"-->
+                </div>
+              </div>
+              <div class="blank"></div>
+              <div class="hell" id="ammeter-back">
+                <div class="use-ammeter other" id="A1"
+                    style="background: url(new-img/ammeter.png); background-size: contain; background-repeat: no-repeat; position: relative; left: -10px; top: 16px;">
+                    <div id="A1L" class="left-end" style="top: 15px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="A1R" class="right-end" style="top: 6px;">
+                        <span class="red-circle"></span>
+                    </div>
+                    <div id="A1LS" style="height: 18px; position: relative; top: 3px; left: -19px;">21</div>
+                    <div id="A1LS" style="height: 18px; position: relative; top: -12px; left: 60px;">22</div>
+                    <div class="name" id="A1-name" style="left: 25px;top: -12px;width: 60px;position:relative;">
+                        IL</div>
+                    <div class="name" style="width: 38px" id="A1-value"></div>
+
+                </div>
+            </div>       
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="VM4-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeter.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                  "
+                  id="VM4"
+                >
+                  <div id="VM4L" class="left-end">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div id="VM4R" class="right-end dbl">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="left-serial-no-vm1" id="VM4LS" style="left: -13px;">23</div>
+                  <div class="right-serial-no-vm1" id="VM4RS">24</div>
+                  <div class="bottom-name-v1" id="VM4-name" style="left: 4px;">VLOAD</div>
+                  <!-- <div class="name" id="V1-value"></div> -->
+                </div>
+              </div>
+              <div class="blank"></div>
+              
+              <div class="blank"></div>
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="VM5-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeter.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                  "
+                  id="VM5"
+                >
+                  <div id="VM5L" class="left-end">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div id="VM5R" class="right-end dbl">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="left-serial-no-vm1" id="VM5LS" style="left: -13px;">25</div>
+                  <div class="right-serial-no-vm1" id="VM5RS">26</div>
+                  <div class="bottom-name-v5" id="VM5-name" style="position: relative; top: 5px; left: 16px;">VT2</div>
+                  <!-- <div class="name" id="V1-value"></div> -->
+                </div>
+              </div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="THY2-back">
+                <div
+                  class="use other"
+                  id="THY2"
+                  style="
+                    background: url(new-img/thyristor.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                  "
+                  id="THY2"
+                >
+                  <div class="right-end" id="THY2R">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="left-end" style="top: 5px" id="THY2L">
+                    <span class="red-circle"></span>
+                  </div>
+
+                  <div
+                    class="rightbottom-end"
+                    style="top: 28px; left: 44px"
+                    id="THY2RB"
+                  >
+                    <span class="red-circle"></span>
+                  </div>
+                  <div
+                    class="top-serial-no top-serial-no-thy"
+                    style="top: -33px"
+                    id="THY12S"
+                  >
+                    <!-- Original id = "VM1TS" -->
+                    27
+                  </div>
+                  <div
+                    class="bottom-serial-no bottom-serial-no-thy"
+                    style="top: -50px"
+                    id="THY2BS"
+                  >
+                    <!-- Original id = "VM1BS" -->
+                    28
+                  </div>
+                  <div
+                    class="bottom-serial-no last-serial-no-thy"
+                    style="top: -22px; left: 59px"
+                    id="THY2RBS"
+                  >
+                    <!-- Original id = "VM1BS" -->
+                    29
+                  </div>
+                  <div
+                    class="bottom-name-thy"
+                    style="top: -40px; left: 8px"
+                    id="THY2-name"
+                  >
+                    T2
+                  </div>
+                </div>
+              </div>
+
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <dib class="blank"></dib>
+            </div>
+            <div class="dia-row">
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="blank"></div>
+              <div class="hell" id="GTP3-back">
+                <div
+                  class="use gatepulse2"
+                  id="GTP3"
+                  style="
+                    background: url(new-img/gatepulsenew.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    left: -6px;
+                    top: -1px;
+                  "
+                >
+                  <div
+                    id="GTP3S"
+                    style="
+                      width: 17px;
+                      height: 18px;
+                      position: relative;
+                      top: 37px;
+                      left: 54px;
+                    "
+                  >
+                    30
+                  </div>
+                  <div
+                    class="right-end-gate"
+                    style="top: 7px; z-index: 9"
+                    id="GTP3R"
+                  >
+                    <span class="red-circle" style=" z-index: 9;position: relative;"></span>
+                  </div>
+                  <div
+                    class="GTP2-name"
+                    id="GTP3-name"
+                    style="position: relative; top: 24px; left: 12px"
+                  >
+                    GP2
+                  </div>
+                  <div
+                    style="
+                      position: relative;
+                      top: 26px;
+                      display: flex;
+                      align-items: flex-end;
+                      justify-content: space-between;
+                      left: -6px;
+                    "
+                  >
+                    <div class="GTP3-value" id="GTP3-freq"></div>
+                    <div class="GTP3-value" id="GTP3-fire"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="hell" id="VM6-back">
+                <div
+                  class="use voltagem other"
+                  style="
+                    background: url(new-img/vmeter.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    top: -1px;
+                  "
+                  id="VM6"
+                >
+                  <div class="upper-end" id="VM6T" style="top: 25px; left: 0px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="right-name-v3" id="VM6name" style="top: 49px; left: 8px;">VGP2</div>
+                  <div class="lower-end" id="VM6B" style="top: -2px; left: 50px;">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div class="top-serial-no top-serial-no-volt" id="VM6TS" style="top: 2px; left: -19px;">
+                    31
+                  </div>
+                  <div
+                    class="bottom-serial-no bottom-serial-no-volt"
+                    id="VM6BS"
+                    style="top: -19px;left: 62px;"
+                  >
+                    32
+                  </div>
+                </div>
+              </div>
+              <div class="hell" id="GND3-back">
+                <div
+                  class="use other"
+                  id="GND3"
+                  style="
+                    background: url(new-img/ground.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    left: 25px;
+                  "
+                >
+                  <div class="upper-end" id="gnd3">
+                    <span class="red-circle"></span>
+                  </div>
+                  <div
+                    id="GND3S"
+                    style="
+                      width: 17px;
+                      height: 18px;
+                      position: relative;
+                      top: -13px;
+                      left: 6px;
+                    "
+                  >
+                    33
+                  </div>
+                  <div class="ground-name" id="GND3-name">GND</div>
+                </div>
+              </div>
+              <dib class="blank"></dib>
+            </div>
+          </div>
+
+          <div style="margin-left: 80px" class="btn-bar">
+            <button
+              style="left: -80px; top: 5px"
+              id="check1"
+              class="button-82-pushable"
+              role="button"
+            >
+              <span class="button-82-shadow"></span>
+              <span class="button-82-edge"></span>
+              <span
+                style="
+                  font-size: medium;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                "
+                class="button-82-front text fa fa-check"
+                >&nbsp;CHECK</span
+              >
+            </button>
+
+            <button
+              style="margin-left: -120px; top: 5px"
+              class="button-82-pushable"
+              onclick="showreadings()"
+              role="button"
+            >
+              <span class="button-82-shadow"></span>
+              <span class="button-82-edge"></span>
+              <span
+                style="
+                  font-size: medium;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                "
+                class="fa fa-table button-82-front text"
+                >&nbsp;ADD</span
+              >
+            </button>
+
+            <button
+              style="left: -40px; top: 5px"
+              onclick="location.reload();"
+              class="button-82-pushable"
+              role="button"
+            >
+              <span class="button-82-shadow"></span>
+              <span class="button-82-edge"></span>
+              <span
+                style="
+                  font-size: medium;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                "
+                class="fa fa-repeat button-82-front text"
+                >&nbsp;RESET</span
+              >
+            </button>
+
+            <button
+              style="left: -80px; top: 5px"
+              class="button-82-pushable"
+              onclick="window.print()"
+              role="button"
+            >
+              <span class="button-82-shadow"></span>
+              <span class="button-82-edge"></span>
+              <span
+                style="
+                  font-size: medium;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                "
+                class="fa fa-print button-82-front text"
+                >&nbsp;PRINT</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="right">
+        <div
+          style="
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            z-index: 3;
+          "
+        >
+          <div class="header">WAVEFORM</div>
+          <div class="dropdown">
+            <button onclick="getElementById('drp')"
+              class="dropbtn fa fa-info"
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              &nbsp;INSTRUCTIONS
+            </button>
+            <div style="position: relative; left: -304px">
+              <div class="dropdown-content" id="drp">
+                <ul type="none">
+                  <br />
+                  <li>
+                    <b>STEP 1:</b> Drag and drop the components in the workspace
+                    to create the circuit.
+                  </li>
+                  <br />
+                  <li><b> No. of required components: </b></li>
+                  <br />
+                  <li>
+                    <b>AC Source – 1, Thyristor - 2, Gatepulse - 2, </b>
+                  </li>
+                  <br />
+                  <li>
+                    <b>Resistor - 1, Ammeter - 1, Transformer – 1,</b>
+                  </li>
+                  <br />
+                  <li>
+                    <b>Voltmeter – 6, Ground – 2,</b>
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 2:</b> Make the connections as per the instructions
+                    given below:
+                  </li>
+                  <br />
+
+                  <li><b>(a)</b> (1-3, 2-4, 3-5, 4-6)</li>
+                  <br />
+                  <li><b>(b)</b> (7-12, 10-12, 11-13, 13-22)</li>
+                  <br />
+                  <li><b>(c)</b> (14-15, 15-16, 17-18)</li>
+                  <br />
+                  <li><b>(d)</b> (8-19, 20-21, 19-23, 20-24)</li>
+                  <br />
+                  <li><b>(e)</b> (9-27, 25-27, 26-28, 29-30)</li>
+                  <br>
+                  <li><b>(f)</b> (30-31, 32-33, 22-28)</li>
+                  <br>
+
+                  <li>
+                    <b>Note: Click on the wire to delete the connection.</b>
+                  </li>
+                  <br />
+
+                  <li>
+                    <b>STEP 3:</b> Click on the <b>CHECK</b> button to check the
+                    connections.
+                  </li>
+                  <br />
+                  <li>
+                    <b
+                      >Note: Right click on the component to open the dialog box
+                      to edit the properties of the component.
+                    </b>
+                  </li>
+                  <br />
+
+                  <li>
+                    <b>STEP 4:</b> Input the values for all the required
+                    components (AC Source, Gatepulse and Resistor) and the waveform will get plot automatically.
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 5:</b> Now, Click on the <b>ADD</b> button to insert
+                    the reading into the observation table.
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 6:</b> Now, you can input different values as per
+                    your requirement to get the desired waveform.
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 7:</b> Repeat <b>Step 5</b> to again insert the
+                    reading into the table and now repeat <b>Steps 6 to 7</b> to
+                    take more readings.
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 8:</b> Click on the <b>PRINT</b> button to take out
+                    the print of the webpage.
+                  </li>
+                  <br />
+                  <li>
+                    <b>STEP 9:</b> Click on the <b>RESET</b> button to reload
+                    the webpage.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="Graph"
+          style="
+            position: relative;
+            z-index: 1;
+            border-bottom: 3px solid;
+            border-left: 3px solid;
+            overflow-y: scroll;
+            height: 0px;
+          "
+          id="graph-new"
+        ></div>
+      </div>
+    </div>
+
+    <footer
+      id="copyright"
+      style="
+        padding: unset;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.886);
+      "
+    >
+      &copy; 2023 | Virtual Labs, IIT Roorkee
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/graph.js"></script>
+  </body>
+</html>
+
+
